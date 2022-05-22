@@ -13,6 +13,7 @@ React Native公式docsの環境構築手順が完了していること
 
 ```bash
 yarn
+yarn refresh
 ```
 
 ### Metro Bundlerの起動
@@ -40,6 +41,16 @@ yarn android
 ```bash
 yarn ios
 ```
+
+### エラーで起動しない場合
+
+ターミナルにて、Metro Bundlerを起動してから、以下を実行
+
+```bash
+yarn refresh
+```
+
+その後、「Androidの開始」または「iOSの開始」の手順を実施する
 
 ## 使用APIについて
 
