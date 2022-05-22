@@ -40,3 +40,19 @@ yarn android
 ```bash
 yarn ios
 ```
+
+## 使用APIについて
+
+使用するAPIは、Google Books APIs
+<https://developers.google.com/books>
+
+(カテゴリ別、キーワードなし新着別に取得するAPIがないため、キーワード検索でカテゴリとして振る舞うようにする)
+
+IT
+<https://www.googleapis.com/books/v1/volumes?q=IT&langRestrict=ja&maxResults=10&orderBy=newest&printType=books&projection=lite&showPreorders=true>
+
+アート
+<https://www.googleapis.com/books/v1/volumes?q=アート&langRestrict=ja&maxResults=10&orderBy=newest&printType=books&projection=lite&showPreorders=true>
+
+旅行
+<https://www.googleapis.com/books/v1/volumes?q=旅行&langRestrict=ja&maxResults=10&orderBy=newest&printType=books&projection=lite&showPreorders=true>
