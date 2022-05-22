@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
+import {getBooksData} from './HomeService';
 
 const HomeScreen = ({navigation}) => {
+  const booksData = useRef();
+
+  useEffect(() => {
+    (async () => {
+      booksData.current = await getBooksData();
+    })();
+  }, []);
+
   return (
     <View style={styles.view}>
       <Text>Home Screen</Text>
