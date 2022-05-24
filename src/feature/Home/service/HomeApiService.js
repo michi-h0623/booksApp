@@ -1,19 +1,17 @@
-import {default as axios} from '../../../api/axios';
+import {default as axios} from '../../../../api/axios';
 
-export const getBooksData = async () => {
+export const getBooksData = async searchText => {
   const result = await axios.get('/volumes', {
     params: {
-      q: 'IT',
+      q: searchText,
       langRestrict: 'ja',
       maxResults: 10,
       orderBy: 'newest',
       printType: 'books',
       projection: 'lite',
-      showPreorders: 'true',
+      showPreorders: 'false',
     },
   });
 
   return result.data;
-
-  // console.log(result.data);
 };
