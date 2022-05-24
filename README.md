@@ -5,6 +5,13 @@
 React Native公式docsの環境構築手順が完了していること
 参考：<https://reactnative.dev/docs/next/environment-setup#development-os>
 
+## 動作確認済み環境
+
+Xcode: Version 13.4
+Android Studio: Android Studio Chipmunk | 2021.2.1 Build #AI-212.5712.43.2112.8512546, built on April 29, 2022
+VSCode: バージョン: 1.67.2 (Universal)
+React Native: 0.68.2
+
 ## 開始方法
 
 ### ライブラリのインストール
@@ -12,8 +19,7 @@ React Native公式docsの環境構築手順が完了していること
 ターミナルにて、以下を実行
 
 ```bash
-yarn
-yarn refresh
+yarn setup
 ```
 
 ### Metro Bundlerの起動
@@ -59,11 +65,6 @@ yarn refresh
 
 (カテゴリ別、キーワードなし新着別に取得するAPIがないため、キーワード検索でカテゴリとして振る舞うようにする)
 
-IT
-<https://www.googleapis.com/books/v1/volumes?q=IT&langRestrict=ja&maxResults=10&orderBy=newest&printType=books&projection=lite&showPreorders=true>
+## 工夫した点
 
-アート
-<https://www.googleapis.com/books/v1/volumes?q=アート&langRestrict=ja&maxResults=10&orderBy=newest&printType=books&projection=lite&showPreorders=true>
-
-旅行
-<https://www.googleapis.com/books/v1/volumes?q=旅行&langRestrict=ja&maxResults=10&orderBy=newest&printType=books&projection=lite&showPreorders=true>
+読みやすいコードとなるよう、記述に気をつけた。
