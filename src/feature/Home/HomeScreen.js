@@ -18,10 +18,17 @@ const HomeScreen = ({navigation}) => {
     for (const category of categoryList) {
       promiseList.push(getBooksData(category));
     }
-    setBooksDataList(await Promise.all(promiseList));
+    const results = await Promise.all(promiseList).catch(error => {
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'Error'}],
+      });
+    });
+
+    setBooksDataList(results);
 
     setIsReady(true);
-  }, [categoryList]);
+  }, [categoryList, navigation]);
 
   useEffect(() => {
     init();
@@ -31,6 +38,7 @@ const HomeScreen = ({navigation}) => {
     <SafeAreaView>
       <ScrollView>
         {isReady &&
+          booksDataList &&
           booksDataList.map((booksData, index) => {
             return renderFlatList(booksData, categoryList[index], navigation);
           })}
