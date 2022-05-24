@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 
 function DetailsScreen({route}) {
   const {params} = route;
-  console.log(params);
+
   return (
     <ScrollView>
       <View style={styles.view}>
