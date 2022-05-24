@@ -8,6 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
+    "setup": "yarn && pod install --project-directory=./ios",
     "refresh": "rm -rf ./node_modules && rm -rf ./ios/Pods && yarn && pod install --project-directory=./ios"
   },
   "dependencies": {
