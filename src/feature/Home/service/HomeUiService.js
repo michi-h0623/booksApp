@@ -1,38 +1,45 @@
 import React from 'react';
-import {Text, Image, StyleSheet, View, FlatList} from 'react-native';
+import {Text, Image, StyleSheet, View, FlatList, Pressable} from 'react-native';
 
-export const renderFlatListItem = ({item}) => {
-  // const totalItems = item.totalItems;
+const _renderFlatListItem = ({item}, navigation) => {
   const volume = item.volumeInfo;
 
-  // const title = volume.title;
-  // const authors = volume.authors;
-  // const publishedDate = volume.publishedDate;
-  // const description = volume.description;
-
+  const title = volume.title;
+  const authors = volume.authors;
+  const publishedDate = volume.publishedDate;
+  const description = volume.description;
   const imageLinks = volume.imageLinks;
-  // const smallThumbnail = imageLinks.smallThumbnail;
   const thumbnail = imageLinks.thumbnail;
 
   return (
-    <View style={styles.renderItemContainer}>
+    <Pressable
+      style={styles.renderItemContainer}
+      onPress={() => {
+        navigation.navigate('Details', {
+          title: title,
+          authors: authors,
+          thumbnail: thumbnail,
+          description: description,
+          publishedDate: publishedDate,
+        });
+      }}>
       <Image
         style={styles.image}
         source={{
           uri: thumbnail,
         }}
       />
-    </View>
+    </Pressable>
   );
 };
 
-export const renderFlatList = (booksData, category) => {
+export const renderFlatList = (booksData, category, navigation) => {
   return (
-    <View>
+    <View key={category}>
       <Text style={styles.title}>Category: {category}</Text>
       <FlatList
         data={booksData?.items}
-        renderItem={item => renderFlatListItem(item)}
+        renderItem={item => _renderFlatListItem(item, navigation)}
         keyExtractor={item => item.etag}
         horizontal={true}
       />

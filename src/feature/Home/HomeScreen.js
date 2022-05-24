@@ -32,7 +32,7 @@ const HomeScreen = ({navigation}) => {
       <ScrollView>
         {isReady &&
           booksDataList.map((booksData, index) => {
-            return renderFlatList(booksData, categoryList[index]);
+            return renderFlatList(booksData, categoryList[index], navigation);
           })}
       </ScrollView>
     </SafeAreaView>
